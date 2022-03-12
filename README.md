@@ -7,14 +7,19 @@ cd backend
 1. npx hardhat compile
 //compile contract
 
-![contract deployed](https://user-images.githubusercontent.com/90293555/158035513-e7e5092a-ce16-4695-be85-13df05f85603.jpg)
 
 2. npx hardhat run --network moonbase scripts/deploy.js
 //deploy contract to testnet
 
-![deployed contract address](https://user-images.githubusercontent.com/90293555/158035519-9e77792d-f3ae-45db-b0b6-a73a1a89aede.jpg)
 
 ```
+
+![contract deployed](https://user-images.githubusercontent.com/90293555/158035654-f76a1224-78c9-4aee-82e6-466a55d590e5.jpg)
+
+
+![deployed contract address](https://user-images.githubusercontent.com/90293555/158035657-0cbefd4c-c7e1-486e-877d-c84b14fa67f8.jpg)
+
+
 ### Testnet:
 
 
