@@ -48,5 +48,7 @@ Seller recieve Payment
 
 Payment and delivery confirm
 
+Time limit
+
 ![interact metamask](https://user-images.githubusercontent.com/90293555/158035557-f168cd3c-2034-4ec3-b485-af894f0339f2.jpg)
 
