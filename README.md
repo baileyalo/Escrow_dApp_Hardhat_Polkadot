@@ -38,7 +38,7 @@ npm start
 ```
 ![Dapp](https://user-images.githubusercontent.com/90293555/158035529-bb292918-3a27-48cd-a683-88d6c0b14805.jpg)
 
-### Funtionalities:
+#### Funtionalities:
 
 -Buyer Send Payment
 
