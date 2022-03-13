@@ -14,10 +14,6 @@ cd backend
 
 ```
 
-![contract deployed](https://user-images.githubusercontent.com/90293555/158035654-f76a1224-78c9-4aee-82e6-466a55d590e5.jpg)
-
-
-![deployed contract address](https://user-images.githubusercontent.com/90293555/158035657-0cbefd4c-c7e1-486e-877d-c84b14fa67f8.jpg)
 
 
 ### Testnet:
