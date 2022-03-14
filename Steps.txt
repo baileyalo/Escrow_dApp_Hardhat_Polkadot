@@ -2,10 +2,10 @@
 
 cd backend
 ```javascript
-1. npx hardhat compile
+1. truffle compile
 //compile contract
 
-2. npx hardhat run --network moonbase scripts/deploy.js
+2. truffle migrate run --network moonbase 
 //deploy contract to testnet
 ```
 ### Testnet:
@@ -15,8 +15,6 @@ cd backend
 ```javascript
 copy contract address '0x46dB388bd612F706250E4dCAF8F5d42cA920A229'
 
-Copy contract abi to escrow.js
-
 cd frontend
 
 npm start
@@ -24,11 +22,9 @@ npm start
 
 ### Funtionalities:
 
-Buyer Send Payment
+- Buyer Send Payment
 
-Agent confirm Payment 
+- Arbiter confirm Payment 
 
-Seller recieve Payment
+- Seller recieve Payment
 
-
-Payment and delivery confirm
