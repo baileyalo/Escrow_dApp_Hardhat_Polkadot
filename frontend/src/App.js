@@ -21,7 +21,7 @@ function Contract (){
 export default function App() {
   const [vaultBalance, setvaultBalance] = React.useState();
   const [ethValue, setEthValue] = React.useState(60);
-  
+ 
   const [timer, setTimer] = React.useState();
   const id =React.useRef(null);
   const clear=()=>{
