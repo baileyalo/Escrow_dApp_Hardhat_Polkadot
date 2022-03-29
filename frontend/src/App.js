@@ -104,12 +104,6 @@ export default function App() {
     const tx = await contract.AgentTransfer();   
   }
 
-  const handleStatus = async (e) => {
-    e.preventDefault();
-    const contract = Contract();
-    console.log( await contract.status());
-  }
-
   return (
     <Form>
     <div className="App">
