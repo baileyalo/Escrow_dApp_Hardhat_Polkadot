@@ -55,11 +55,10 @@ contract Escrow is AccessControl { //Ownable,
     }
 
     function SendPayment() external payable onlyRole(SENDER_ROLE) {
-        require (msg.value > fee, "Escrow Agent fee of 1 Ether must be covered!");
-        require (msg.value >= price, "Sender should pay at least the minimal price for the products or services.");
+        require (msg.value >= fee, "Escrow Agent fee of 100000 must be covered!");
         require (status == Status.REGISTER, "This should be the first stage of the negociation!");
         payable(agent).transfer(fee);
-        uint256 new_price = price - fee;
+        uint256 new_price = msg.value - fee;
         payable(vault).transfer(new_price);
         balance += msg.value;
         status = Status.DEPOSITED; // payment submitted to vault
@@ -67,7 +66,6 @@ contract Escrow is AccessControl { //Ownable,
 
     receive() external payable {
     }
-
 
     function ClaimPayment () public onlyRole(RECEIVER_ROLE) {
         // seller should be able to claim payment only within the timelock period.
@@ -80,14 +78,7 @@ contract Escrow is AccessControl { //Ownable,
     function ConfirmDeliver () payable public onlyRole(SENDER_ROLE) {
         require (status == Status.CLAIM , "Can only confirm delivery after seller has claimed for payment");
         status = Status.ACCEPTED; // sender confirmed the delivery
-    }
-
-    function DenyDeliver () public onlyRole(SENDER_ROLE) {
-        
-        require (status == Status.CLAIM, "Can only deny delivery after seller has claimed for payment");
-        require((block.timestamp > start + lockTime), "You cannot deny delivery before the timelock period");
-        status = Status.DECLINE ;
-    }
+    } 
 
     function AgentTransfer () onlyRole(AGENT_ROLE) public {
         if(status == Status.ACCEPTED ){
@@ -95,9 +86,6 @@ contract Escrow is AccessControl { //Ownable,
             balance = 0;
         }
 
-        else if(status == Status.DECLINE ){
-            sender.transfer(vault.balance);
-            balance = 0;
-        }
+
     }
 }
