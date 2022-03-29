@@ -42,8 +42,6 @@ npm start
 
 - Buyer Send Payment
 
-- Agent confirm Payment 
-
 - Seller recieve Payment
 
 - Payment and delivery confirm
