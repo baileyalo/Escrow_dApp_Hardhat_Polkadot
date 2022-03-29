@@ -1,6 +1,6 @@
 async function main() {
   const Escrow = await hre.ethers.getContractFactory("Escrow");
-  const escrow = await Escrow.deploy("0x5DA733b6b55641526D4F4BC861e85Bc6Bf4A939c","0x0DB7B76077441623eaaCE24aeFE32F0967e19436", 12, 30);
+  const escrow = await Escrow.deploy("0x35E95CFa48001B9025b560D0865E4F8540313d8d","0x7c91d48ed875a53b803ed0f9F825eCF20F1DF619", 100000, 230);
   await escrow .deployed();  
   console.log("Escrow deployed to:",escrow.address);
 }
