@@ -20,10 +20,10 @@ function Contract (){
 
 export default function App() {
  
-  const [startTime,setstartTime] = React.useState();
-  const [timeleft,settimeleft] = React.useState();
-  const [curnttime,setcurnttime] = React.useState();
-  const [timeLock, settimeLock] = React.useState();
+  const [SendPayment,setSendPayment] = React.useState();
+  const [ClaimPayment,setClaimPayment] = React.useState();
+  const [ConfirmDeliver,setConfirmDeliver] = React.useState();
+  const [AgentTransfer,setAgentTransfer] = React.useState();
   const [vaultBalance, setvaultBalance] = React.useState();
   const [ethValue, setEthValue] = React.useState(60);
   
@@ -71,37 +71,36 @@ export default function App() {
   const handleSendPayment = async (e) => {
     e.preventDefault();
     const contract = Contract();
-    const myPromise = new Promise((resolve, reject) => {  
+    const tx = new Promise((resolve, reject) => {  
       resolve(contract.SendPayment({value: ethValue}));  
     });
-    myPromise.then( ()=>{
-      setvaultBalance(Number(ethers.BigNumber.from(contract.balance()).toString()));
-      console.log();
+    tx.then( ()=>{
+      setvaultBalance(Number(ethers.BigNumber.from( contract.balance()).toString()));
+      console.log('completed');
     });
   }
 
   const handleClaimPayment = async (e) => {
     e.preventDefault();
     const contract = Contract();
-    const tx = await contract.ClaimPayment();  
+    const tx = await contract.ClaimPayment(); 
+    console.log(tx); 
   }
 
   const handleConfirmDeliver = async (e) => {
     e.preventDefault();
     const contract = Contract();
     const tx = await contract.ConfirmDeliver(); 
+    console.log(tx);
   }
 
-  const handleDenyDeliver = async (e) => {
-    e.preventDefault();
-    const contract = Contract();
-    const tx = await contract.DenyDeliver();   
-  }
 
   const handleAgentTransfer = async (e) => {
     e.preventDefault();
     const contract = Contract();
-    const tx = await contract.AgentTransfer();   
+    const tx = await contract.AgentTransfer(); 
+    setvaultBalance(Number(ethers.BigNumber.from(await contract.balance()).toString()));  
+    console.log(tx);
   }
 
   return (
