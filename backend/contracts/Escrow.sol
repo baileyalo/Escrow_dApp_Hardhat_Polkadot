@@ -55,12 +55,12 @@ contract Escrow is AccessControl { //Ownable,
     }
 
     function SendPayment() external payable onlyRole(SENDER_ROLE) {
-        require (msg.value >= fee, "Escrow Agent fee of 100000 must be covered!");
+        require (msg.value >= fee, "Escrow Agent fee of 1000 DEV must be covered!");
         require (status == Status.REGISTER, "This should be the first stage of the negociation!");
         payable(agent).transfer(fee);
         uint256 new_price = msg.value - fee;
         payable(vault).transfer(new_price);
-        balance += msg.value;
+        balance += new_price;
         status = Status.DEPOSITED; // payment submitted to vault
     }
 

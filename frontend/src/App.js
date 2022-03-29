@@ -7,7 +7,7 @@ import './App.css';
 
 function Contract (){
 
-  const escrowAddress = "0x8CBc95f7FFCecA73838b0647dC071461317eCF16";
+  const escrowAddress = "0xE1c6E15EaCEe356AbC285B9d0A76B1810a441a00";
   if (!window.ethereum){
     throw new Error("No crypto wallet found. Please install it.");
   }
